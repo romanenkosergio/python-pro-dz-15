@@ -36,3 +36,4 @@ def start_exchange(vendor, currency_a, currency_b):
         currency_b=currency_b,
         defaults={"sell": exchange.pair.sell, "buy": exchange.pair.buy},
     )
+
