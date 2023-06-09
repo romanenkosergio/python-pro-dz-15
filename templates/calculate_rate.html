@@ -1,0 +1,43 @@
+{% load bootstrap5 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculate Rate</title>
+</head>
+<body>
+
+<h1 class="text-center">Calculate rate from USD to UAH</h1>
+{% if is_calculated %}
+    <h4 class="text-center">The best rate from {{ bank_name }} {{ rate }}</h4>
+{% endif %}
+<main>
+    <section class="container">
+        <div class="row">
+            <form action="{% url "calculate_rate" %}" method="POST" class="form d-flex justify-content-center align-items-end gap-2">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary">
+                      Submit
+                    </button>
+                {% endbuttons %}
+            </form>
+        </div>
+        <div class="row">
+            {% if is_calculated %}
+              <div class="text-center">{{ result }} UAH</div>
+            {% endif %}
+        </div>
+    </section>
+</main>
+</body>
+</html>

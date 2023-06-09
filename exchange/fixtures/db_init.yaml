@@ -1,0 +1,18 @@
+- model: exchange.rate
+  pk: 1
+  fields:
+    date: 2022-01-01
+    vendor: mono
+    currency_a: USD
+    currency_b: EUR
+    sell: 1.1
+    buy: 1.2
+- model: exchange.rate
+  pk: 2
+  fields:
+    date: 2022-01-01
+    vendor: privat
+    currency_a: USD
+    currency_b: EUR
+    sell: 1.01
+    buy: 1.0
